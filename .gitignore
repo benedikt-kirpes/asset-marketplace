@@ -1,3 +1,12 @@
+# truffle
 build
 node_modules
 yarn-error.log
+# intellij
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/dataSources.ids
+.idea/datasources.xml
+.idea/libraries
+#
+package-lock.json
