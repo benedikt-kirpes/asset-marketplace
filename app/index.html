@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>MetaCoin - Truffle Webpack Demo w/ Frontend</title>
+  <title>Property Market - Ethereum Blockchain</title>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
   <!--<script
           src="https://code.jquery.com/jquery-3.2.1.min.js"
@@ -35,10 +35,18 @@
     <div id="signupbox" style=" margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
         <div class="panel panel-info">
             <div class="panel-heading">
-                <div class="panel-title">Asset Data</div>
+                <div class="panel-title">What is happening?</div>
                 <div style="float:right; font-size: 85%; position: relative; top:-10px"><a id="signinlink" href="#" "></a></div>
             </div>
             <div class="panel-body" >
+
+                <!--<h1>You are logged in to your MetaMask Account!</h1>-->
+                <!--<h3>Please choose your User Type:</h3>-->
+
+                <!--<a href="buyer.html" class="btn btn-info" role="button">Buyer</a>-->
+                <!--<a href="seller.html" class="btn btn-info" role="button">Seller</a>-->
+
+
                 Set Register:
                 <button id="nothing" onclick="App.setRegister()">Create</button>
                 <br>
@@ -50,13 +58,33 @@
                 <br>
                 Create New Property:
                 <button id="send" onclick="App.AddProperty()">Create</button>
-                <br>
-                Who is the owner?
+                <br><br>
+                <h2>Who is the owner?</h2>
                 <br><label for="receiver">Property number:</label><input type="text" id="receiver" placeholder="e.g., 0x93e66d9baea28c17d9fc393b53e3fbdd76899dae"></input>
                 <br><br><button id="send2" onclick="App.GetOwner()">LOOK</button>
             </div>
         </div>
     </div>
+
+
+
+
+    <div id="notloggedin" style="display:none; margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <div class="panel-title">Not logged in</div>
+                <div style="float:right; font-size: 85%; position: relative; top:-10px"><a id="signinlink" href="#" "></a></div>
+            </div>
+            <div class="panel-body" >
+                <strong>You are NOT logged in to the Ethereum blockchain!</strong>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.7/js/tether.min.js" integrity="sha384-XTs3FgkjiBgo8qjEjBk0tGmf3wPrWtA6coPfQDfFEY8AnYJwjalXCiosYRBIBZX8"
             crossorigin="anonymous"></script>
