@@ -19,7 +19,7 @@ contract PropertyOwners {
         }
     }
 
-    function GetOwner(uint propId) returns (address) {
+    function GetOwner(uint propId) public constant returns (address) {
       return properties[propId];
     }
 
