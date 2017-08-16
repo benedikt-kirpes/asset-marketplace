@@ -39,45 +39,21 @@
                 <div style="float:right; font-size: 85%; position: relative; top:-10px"><a id="signinlink" href="#" "></a></div>
             </div>
             <div class="panel-body" >
-                <form id="signupform" class="form-horizontal" role="form">
-
-                    <div id="signupalert" style="display:none" class="alert alert-danger">
-                        <p>Error:</p>
-                        <span></span>
-                    </div>
-                    <div class="form-group">
-                        <label for="firstname" class="col-md-3 control-label">Asset ID</label>
-                        <div class="col-md-9">
-                            <input type="text" class="form-control" name="Address" placeholder="Asset <ID></ID>">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="firstname" class="col-md-3 control-label">Address</label>
-                        <div class="col-md-9">
-                            <input type="text" class="form-control" name="Address" placeholder="Address">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="email" class="col-md-3 control-label">Postcode</label>
-                        <div class="col-md-9">
-                            <input type="text" class="form-control" name="postcode" placeholder="Postcode">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="password" class="col-md-3 control-label">City</label>
-                        <div class="col-md-9">
-                            <input type="password" class="form-control" name="city" placeholder="City">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <!-- Button -->
-                        <div class="col-md-offset-3 col-md-9">
-                            <button id="btn-signup" type="button" class="btn btn-info btn-block"><i class="icon-hand-right"></i> &nbsp Create</button>
-
-                        </div>
-                    </div>
-                </form>
+                Set Register:
+                <button id="nothing" onclick="App.setRegister()">Create</button>
+                <br>
+                Put On Sale:
+                <button id="nothing" onclick="App.putOnSale()">Sell your house!</button>
+                <br>
+                Put On Sale2:
+                <button id="nothing2" onclick="App.doNothing()">Sell your house!</button>
+                <br>
+                Create New Property:
+                <button id="send" onclick="App.AddProperty()">Create</button>
+                <br>
+                Who is the owner?
+                <br><label for="receiver">Property number:</label><input type="text" id="receiver" placeholder="e.g., 0x93e66d9baea28c17d9fc393b53e3fbdd76899dae"></input>
+                <br><br><button id="send2" onclick="App.GetOwner()">LOOK</button>
             </div>
         </div>
     </div>
@@ -87,21 +63,5 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK"
             crossorigin="anonymous"></script>
 
-
-
-  <!--<h1>You are logged in to your MetaMask Account!</h1>-->
-  <!--<h3>Please choose your User Type:</h3>-->
-
-  <!--<a href="buyer.html" class="btn btn-info" role="button">Buyer</a>-->
-  <!--<a href="seller.html" class="btn btn-info" role="button">Seller</a>-->
-
-  <!--<button id="nothing" onclick="App.doNothing()">Create</button>-->
-  <!--<br>-->
-  <!--<h1>Create New Property</h1>-->
-  <!--<button id="send" onclick="App.AddProperty()">Create</button>-->
-  <!--<br>-->
-  <!--<h1>Who is the owner?</h1>-->
-  <!--<br><label for="receiver">Property number:</label><input type="text" id="receiver" placeholder="e.g., 0x93e66d9baea28c17d9fc393b53e3fbdd76899dae"></input>-->
-  <!--<br><br><button id="send2" onclick="App.GetOwner()">LOOK</button>-->
   </body>
 </html>

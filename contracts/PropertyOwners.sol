@@ -14,13 +14,17 @@ contract PropertyOwners {
     }
 
     function ChangeOwner(uint propId, address newOwner) {
-        if(msg.sender == properties[propId]) {
+        if(tx.origin == properties[propId]) {
             properties[propId] = newOwner;
         }
     }
 
     function GetOwner(uint propId) public constant returns (address) {
       return properties[propId];
+    }
+
+    function GetNumberOfProperties() public constant returns (uint) {
+      return nbOfProperties;
     }
 
 }
