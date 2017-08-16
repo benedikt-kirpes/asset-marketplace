@@ -19,4 +19,8 @@ contract PropertyOwners {
         }
     }
 
+    function GetOwner(uint propId) returns (address) {
+      return properties[propId];
+    }
+
 }
