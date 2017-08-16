@@ -14,7 +14,8 @@ module.exports = {
         { from: './app/stylesheets', to: './stylesheets' },
         { from: './app/css/sidenav.css', to: './css' },
         { from: './app/fonts', to: './fonts' },
-        { from: './app/index.html', to: "." }
+        { from: './app/index.html', to: "." },
+        { from: './app/log.html', to: "." }
     ])
   ],
   module: {

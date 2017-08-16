@@ -21,6 +21,10 @@ contract Marketplace {
     function Marketplace() {
     }
 
+    function getContractAddress() public constant returns (address) {
+        return address(this);
+    }
+
     function SetOwnersRegister(address a) {
         registerAddress = a;
     }

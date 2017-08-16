@@ -8,6 +8,10 @@ contract PropertyOwners {
     function PropertyOwners() {
     }
 
+    function getContractAddress() public constant returns (address) {
+        return address(this);
+    }
+
     function AddProperty() {
         properties[nbOfProperties] = msg.sender;
         nbOfProperties = nbOfProperties+1;

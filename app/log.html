@@ -1,21 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>MetaCoin - Truffle Webpack Demo w/ Frontend</title>
+  <title>Blockchain Log</title>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-  <!--<script
-          src="https://code.jquery.com/jquery-3.2.1.min.js"
-          integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-          crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
-  <script src="./app.js"></script>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>-->
-
-    <!--Import materialize.css-->
-    <!--<link type="text/css" rel="stylesheet" href="./materialize.min.css" media="screen,projection" />-->
-
-    <!--Import bootstrap drawer stylesheets-->
     <link rel="stylesheet" href="./css/bootstrap-social.css">
     <link rel="stylesheet" href="./stylesheets/app.css">
 
@@ -39,9 +26,11 @@
                 <div style="float:right; font-size: 85%; position: relative; top:-10px"><a id="signinlink" href="#" "></a></div>
             </div>
             <div class="panel-body" >
-                Get PropertyOwners Address:
-                
-                <button id="nothing" onclick="App.GetPropertyOwnersAddress()">Create</button>
+              <h3>The Address for Property Owners smart contract<span class="black"><span id="addresspo"></span> </span></h3>
+              <h3>The Address for Marketplace smart contract<span class="black"><span id="addressm"></span> </span></h3>
+              <button id="nothing" onclick="App.GetPropertyOwnersAddress()">Create</button> <br>
+                Set Register:
+                <button id="nothing" onclick="App.setRegister()">Create</button>
                 <br>
                 Put On Sale:
                 <button id="nothing" onclick="App.putOnSale()">Sell your house!</button>

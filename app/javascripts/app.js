@@ -100,8 +100,29 @@ window.App = {
 
     PropertyOwners.deployed().then(function(instance) {
       var meta = instance;
-      console.log(meta.GetOwner(0,{from: account}));
+      meta.GetOwner({from: account}).then(console.log);
     });
+  },
+
+  GetPropertyOwnersAddress: function() {
+
+    var self = this;
+
+    PropertyOwners.deployed().then(function(instance) {
+      var meta = instance;
+      return meta.getContractAddress({from: account});
+    }).then(function(a) {
+        var address = document.getElementById("addresspo");
+        address.innerHTML = a.valueOf();
+     });
+
+    Marketplace.deployed().then(function(instance) {
+       var meta = instance;
+       return meta.getContractAddress({from: account});
+     }).then(function(a) {
+         var address = document.getElementById("addressm");
+         address.innerHTML = a.valueOf();
+      });
   }
 };
 
