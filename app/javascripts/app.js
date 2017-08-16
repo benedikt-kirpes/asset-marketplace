@@ -8,10 +8,12 @@ import { default as contract } from 'truffle-contract';
 // Import our contract artifacts and turn them into usable abstractions.
 import metacoin_artifacts from '../../build/contracts/MetaCoin.json';
 import propertyowners_artifacts from '../../build/contracts/PropertyOwners.json';
+import marketplace_artifacts from '../../build/contracts/Marketplace.json';
 
 // MetaCoin is our usable abstraction, which we'll use through the code below.
 var MetaCoin = contract(metacoin_artifacts);
 var PropertyOwners = contract(propertyowners_artifacts);
+var Marketplace = contract(marketplace_artifacts);
 
 // The following code is simple to show off interacting with your contracts.
 // As your needs grow you will likely need to change its form and structure.
@@ -26,7 +28,7 @@ window.App = {
     // Bootstrap the MetaCoin abstraction for Use.
     MetaCoin.setProvider(web3.currentProvider);
     PropertyOwners.setProvider(web3.currentProvider);
-    window.alert("oihjfqfhjlkqfjqkj");
+    Marketplace.setProvider(web3.currentProvider);
     // Get the initial account balance so it can be displayed.
     web3.eth.getAccounts(function(err, accs) {
       if (err != null) {
@@ -45,13 +47,42 @@ window.App = {
     })
   },
   doNothing: function() {
-    window.alert("NOTHING!");
+    var self = this;
+
+    Marketplace.deployed().then(function(instance) {
+      var meta = instance;
+      console.log(meta.ReturnString({from: account}));
+    }).catch(function(e) {
+      console.log(e);
+    });
   },
+
+  setRegister: function() {
+      var self = this;
+
+      Marketplace.deployed().then(function(instance) {
+        var meta = instance;
+        console.log(meta.SetOwnersRegister('0xf85b80e2d5b6becb6bf266095efff9ba6bb98a69',{from: account}));
+      }).catch(function(e) {
+        console.log(e);
+      });
+    },
+
+  putOnSale: function() {
+    var self = this;
+
+    Marketplace.deployed().then(function(instance) {
+      var meta = instance;
+      var a = meta.PutOnSale(1,{from: account});
+      console.log(a);
+    }).catch(function(e) {
+      console.log(e);
+    });
+  },
+
   AddProperty: function() {
 
     var self = this;
-
-    window.alert('qfsjklqsfj');
 
     PropertyOwners.deployed().then(function(instance) {
       var meta = instance;
