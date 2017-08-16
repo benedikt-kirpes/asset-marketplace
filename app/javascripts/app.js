@@ -26,7 +26,7 @@ window.App = {
     // Bootstrap the MetaCoin abstraction for Use.
     MetaCoin.setProvider(web3.currentProvider);
     PropertyOwners.setProvider(web3.currentProvider);
-
+    window.alert("oihjfqfhjlkqfjqkj");
     // Get the initial account balance so it can be displayed.
     web3.eth.getAccounts(function(err, accs) {
       if (err != null) {
@@ -42,13 +42,18 @@ window.App = {
       accounts = accs;
       account = accounts[0];
 
-      self.refreshBalance();
+    }).catch(function(e) {
+      window.alert(e);
     });
   },
-
+  doNothing: function() {
+    window.alert("NOTHING!");
+  },
   AddProperty: function() {
 
     var self = this;
+
+    Window.alert('qfsjklqsfj');
 
     PropertyOwners.deployed().then(function(instance) {
       meta = instance;
@@ -65,11 +70,9 @@ window.App = {
     var amount = parseInt(document.getElementById("amount").value);
     var receiver = document.getElementById("receiver").value;
 
-    this.setStatus("Initiating transaction... (please wait)");
-
     PropertyOwners.deployed().then(function(instance) {
       meta = instance;
-      return meta.GetOwner(0,{from: account});
+      console.log(meta.GetOwner(0,{from: account}));
     });
   }
 };
@@ -85,6 +88,6 @@ window.addEventListener('load', function() {
     // fallback - use your fallback strategy (local node / hosted node + in-dapp id mgmt / fail)
     window.web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
   }
-
+  console.log('DJHDJQ');
   App.start();
 });
