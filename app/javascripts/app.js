@@ -103,7 +103,9 @@ window.App = {
   },
 
   GetOwner: function() {
+    var data = document.getElementById("receiver").value;
 
+    window.alert(data)
     var self = this;
 
     PropertyOwners.deployed().then(function(instance) {
