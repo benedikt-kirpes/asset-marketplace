@@ -26,7 +26,7 @@ window.App = {
     // Bootstrap the MetaCoin abstraction for Use.
     MetaCoin.setProvider(web3.currentProvider);
     PropertyOwners.setProvider(web3.currentProvider);
-    window.alert("oihjfqfhjlkqfjqkj");
+    // window.alert("oihjfqfhjlkqfjqkj");
     // Get the initial account balance so it can be displayed.
     web3.eth.getAccounts(function(err, accs) {
       if (err != null) {
@@ -51,7 +51,7 @@ window.App = {
 
     var self = this;
 
-    window.alert('qfsjklqsfj');
+    // window.alert('qfsjklqsfj');
 
     PropertyOwners.deployed().then(function(instance) {
       var meta = instance;

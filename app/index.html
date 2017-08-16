@@ -3,17 +3,105 @@
 <head>
   <title>MetaCoin - Truffle Webpack Demo w/ Frontend</title>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <!--<script
+          src="https://code.jquery.com/jquery-3.2.1.min.js"
+          integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+          crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+  <script src="./app.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>-->
+
+    <!--Import materialize.css-->
+    <!--<link type="text/css" rel="stylesheet" href="./materialize.min.css" media="screen,projection" />-->
+
+    <!--Import bootstrap drawer stylesheets-->
+    <link rel="stylesheet" href="./css/bootstrap-social.css">
+    <link rel="stylesheet" href="./stylesheets/app.css">
+
+    <!--Import bootstrap drawer stylesheets-->
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/sidenav.css">
+
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <script src="./app.js"></script>
 </head>
-<body>
-  <h1>Do Nothing</h1>
-  <button id="nothing" onclick="App.doNothing()">Create</button>
-  <br>
-  <h1>Create New Property</h1>
-  <button id="send" onclick="App.AddProperty()">Create</button>
-  <br>
-  <h1>Who is the owner?</h1>
-  <br><label for="receiver">Property number:</label><input type="text" id="receiver" placeholder="e.g., 0x93e66d9baea28c17d9fc393b53e3fbdd76899dae"></input>
-  <br><br><button id="send2" onclick="App.GetOwner()">LOOK</button>
+<body class="has-drawer">
+<div id="fullscreen_bg" class="fullscreen_bg"/>
+<div class="container">
+    <div id="signupbox" style=" margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <div class="panel-title">Asset Data</div>
+                <div style="float:right; font-size: 85%; position: relative; top:-10px"><a id="signinlink" href="#" "></a></div>
+            </div>
+            <div class="panel-body" >
+                <form id="signupform" class="form-horizontal" role="form">
+
+                    <div id="signupalert" style="display:none" class="alert alert-danger">
+                        <p>Error:</p>
+                        <span></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="firstname" class="col-md-3 control-label">Asset ID</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control" name="Address" placeholder="Asset <ID></ID>">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="firstname" class="col-md-3 control-label">Address</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control" name="Address" placeholder="Address">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="col-md-3 control-label">Postcode</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control" name="postcode" placeholder="Postcode">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password" class="col-md-3 control-label">City</label>
+                        <div class="col-md-9">
+                            <input type="password" class="form-control" name="city" placeholder="City">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <!-- Button -->
+                        <div class="col-md-offset-3 col-md-9">
+                            <button id="btn-signup" type="button" class="btn btn-info btn-block"><i class="icon-hand-right"></i> &nbsp Create</button>
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.7/js/tether.min.js" integrity="sha384-XTs3FgkjiBgo8qjEjBk0tGmf3wPrWtA6coPfQDfFEY8AnYJwjalXCiosYRBIBZX8"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK"
+            crossorigin="anonymous"></script>
+
+
+
+  <!--<h1>You are logged in to your MetaMask Account!</h1>-->
+  <!--<h3>Please choose your User Type:</h3>-->
+
+  <!--<a href="buyer.html" class="btn btn-info" role="button">Buyer</a>-->
+  <!--<a href="seller.html" class="btn btn-info" role="button">Seller</a>-->
+
+  <!--<button id="nothing" onclick="App.doNothing()">Create</button>-->
+  <!--<br>-->
+  <!--<h1>Create New Property</h1>-->
+  <!--<button id="send" onclick="App.AddProperty()">Create</button>-->
+  <!--<br>-->
+  <!--<h1>Who is the owner?</h1>-->
+  <!--<br><label for="receiver">Property number:</label><input type="text" id="receiver" placeholder="e.g., 0x93e66d9baea28c17d9fc393b53e3fbdd76899dae"></input>-->
+  <!--<br><br><button id="send2" onclick="App.GetOwner()">LOOK</button>-->
   </body>
 </html>
