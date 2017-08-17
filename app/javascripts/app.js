@@ -83,8 +83,7 @@ window.App = {
 
     Marketplace.deployed().then(function(instance) {
       var meta = instance;
-      var a = meta.PutOnSale(1,{from: account});
-      console.log(a);
+      meta.PutOnSale(0,100,{from: account});
     }).catch(function(e) {
       console.log(e);
     });
@@ -101,6 +100,36 @@ window.App = {
       console.log(e);
     });
   },
+
+
+  GetPrice: function(id) {
+    Marketplace.deployed().then(function(instance) {
+      var meta = instance;
+      return meta.getPrice(id,{from: account})
+    }).then(function(a) {return parseInt(a); })
+  },
+
+  GetAllProperties: function() {
+
+    var nbOfProperties;
+    var properties = [];
+    var i;
+
+    Marketplace.deployed().then(function(instance) {
+      var meta = instance;
+      return meta.getNbOfProperties({from: account})
+    }).then(function(ret) {
+        nbOfProperties = parseInt(ret);
+      }).then( function() {
+        for(i = 0; i < nbOfProperties ; i++) {
+          properties.append({'id': i, 'price': 100});
+        }
+      }
+      );
+
+    return properties;
+  },
+
 
   GetOwner: function() {
     var data = document.getElementById("receiver").value;

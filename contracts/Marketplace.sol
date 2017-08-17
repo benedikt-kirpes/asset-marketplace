@@ -8,12 +8,14 @@ contract PropertyOwnersInterface {
 contract Marketplace {
 
     address registerAddress;
+    uint nbOfProperties;
 
     struct Property {
       address owner;
       uint price;
       bool sold;
       address buyer;
+      uint legalid;
     }
 
     mapping (uint => Property) propertiesForSale;
@@ -21,8 +23,22 @@ contract Marketplace {
     function Marketplace() {
     }
 
+    // GETTERS
+
     function getContractAddress() public constant returns (address) {
         return address(this);
+    }
+
+    function getNbOfProperties() public constant returns (bytes32) {
+      return bytes32(nbOfProperties);
+    }
+
+    function getOwner(uint pid) public constant returns (address) {
+      return propertiesForSale[pid].owner;
+    }
+
+    function getPrice(uint pid) public constant returns (bytes32) {
+      return bytes32(propertiesForSale[pid].price);
     }
 
     function SetOwnersRegister(address a) {
@@ -35,7 +51,8 @@ contract Marketplace {
         if (msg.sender != pad) {
           throw;
         }
-        propertiesForSale[pid] = Property(msg.sender, price, false, msg.sender);
+        propertiesForSale[nbOfProperties] = Property(msg.sender, price, false, msg.sender, pid);
+        nbOfProperties = nbOfProperties + 1;
     }
 
     function Buying(uint pid) payable {
@@ -47,15 +64,16 @@ contract Marketplace {
     }
 
     function SettleTransaction(uint pid) {
-        address pad = p.GetOwner(pid);
         address buyer = propertiesForSale[pid].buyer;
+        uint legalid = propertiesForSale[pid].legalid;
         uint price = propertiesForSale[pid].price;
+        PropertyOwnersInterface p = PropertyOwnersInterface(registerAddress);
+        address pad = p.GetOwner(legalid);
         if (msg.sender != pad || propertiesForSale[pid].sold == false) {
           throw;
         }
         msg.sender.transfer(price);
-        PropertyOwnersInterface p = PropertyOwnersInterface(registerAddress);
-        p.ChangeOwner(pid, buyer);
+        p.ChangeOwner(legalid, buyer);
     }
 
 }
