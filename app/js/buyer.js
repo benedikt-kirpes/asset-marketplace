@@ -19,11 +19,27 @@ window.addEventListener('load', function() {
     var source   = $("#entry-template").html();
     var template = Handlebars.compile(source);
 
+    // image list
+    var buildings = [
+        'http://www.rob.dk/bolig/bolig2.jpg',
+        'http://www.juss.info/wp-content/uploads/2013/10/eierskifteforsikring.jpg',
+        'https://img.borsen.dk/img/cms/tuksi4/media/nyheder/16_9_large/79/121379phori_4248_1.jpg',
+        'http://www.groovesmag.com/wp-content/uploads/2017/01/bo.jpg',
+        'http://blabolig.no/files/large/d362a97ff132a9ef1ad1454afce4950b.jpg',
+        'http://sparmere.dk/wp-content/uploads/2010/10/Bolig-Blogger.jpg',
+        'http://www.iboligen.dk/s3/file.iboligen.dk/media/articles/100193/Kirke%20bolig-%20iBOLIGEN.DK%20high.jpg',
+        'http://www.rob.dk/bolig/bolig1.jpg',
+        'http://idealhuse.dk/wp-content/uploads/2017/04/Bolig-til-topkarakter-i-groenne-omgivelser-1.jpg',
+        'http://www.hdbolig.dk/wp/wp-content/uploads/2015/12/hdbolig_slider1.jpg',
+        'http://www.hdbolig.dk/wp/wp-content/uploads/2011/09/Lyngevej-43-11.jpg'
+    ];
+
   App.GetAllProperties(function (data) {
       console.log(data);
       var entriesdiv = $("#entries");
         for(i=0; i<data.length;i++) {
-            var context = {image: "http://placehold.it/350x250", price: "2000000000", type: "Villa", city: "copenhagen", street: "Universitetsgade 5", year: "2001", size: "200", rooms: "4", energyclass: "Class D"};
+            var j = i + 2;
+            var context = {image: buildings[i], price: j*1500000, type: "Villa", city: "copenhagen", street: "Universitetsgade " + j, year: 1980 + j, size: "200", rooms: 2 + j, energyclass: "Class D"};
             var html    = template(context);
             entriesdiv.append(html);
         }
