@@ -1,5 +1,5 @@
 // Import the page's CSS. Webpack will know what to do with it.
-import "../stylesheets/app.css";
+//import "../stylesheets/app.css";
 
 // Import libraries we need.
 import { default as Web3} from 'web3';
@@ -29,8 +29,8 @@ window.App = {
       try {
           MetaCoin.setProvider(web3.currentProvider);
       } catch (err) {
-          document.getElementById("signupbox").style.display = "none";
-          document.getElementById("notloggedin").style.display = "inline";
+          // document.getElementById("signupbox").style.display = "none";
+          // document.getElementById("notloggedin").style.display = "inline";
           return;
       }
     PropertyOwners.setProvider(web3.currentProvider);
@@ -38,15 +38,15 @@ window.App = {
     // Get the initial account balance so it can be displayed.
     web3.eth.getAccounts(function(err, accs) {
       if (err != null) {
-        document.getElementById("signupbox").style.display = "none";
-        document.getElementById("notloggedin").style.display = "inline";
+        // document.getElementById("signupbox").style.display = "none";
+        // document.getElementById("notloggedin").style.display = "inline";
           alert("There was an error fetching your accounts.");
         return;
       }
 
       if (accs.length == 0) {
-          document.getElementById("signupbox").style.display = "none";
-          document.getElementById("notloggedin").style.display = "inline";
+          // document.getElementById("signupbox").style.display = "none";
+          // document.getElementById("notloggedin").style.display = "inline";
         alert("Couldn't get any accounts! Make sure your Ethereum client is configured correctly.");
         return;
       }
@@ -119,7 +119,7 @@ window.App = {
       }
     );
   },
-  
+
   GetOwner: function() {
     var data = document.getElementById("receiver").value;
 
