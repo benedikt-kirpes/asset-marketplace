@@ -24,6 +24,22 @@
     <script src="./app.js"></script>
     <script src="js/buyer.js"></script>
 
+    <style type="text/css">
+        .bs-example{
+            margin: 20px;
+        }
+        .modal-content iframe{
+            margin: 0 auto;
+            display: block;
+        }
+        .btn-primary, .btn-primary:hover, .btn-primary:visited {
+            background-color: transparent !important;
+            border-color: transparent !important;
+        }
+        .modal-content {
+            width: 800px !important;
+        }
+    </style>
 
 
     <script id="entry-template" type="text/x-handlebars-template">
@@ -31,7 +47,25 @@
             <div class="row">
                 <div class="media col-lg-4 col-md-4">
                     <figure class="pull-left">
+
+                        <a id="vid" href="#myModal" class="btn btn-lg btn-primary" data-toggle="modal">
                         <img class="media-object img-rounded img-responsive"  src="{{image}}" alt="" width="300">
+                         </a>
+
+<div id="myModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title">YouTube Video</h4>
+                </div>
+                <div class="modal-body">
+                    <iframe id="cartoonVideo" width="770" height="400" src="//www.youtube.com/embed/3rnfoDYXxT8" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
                         <h4 class="list-group-item-heading">Price: {{price}}€</h4>
                     </figure>
 
