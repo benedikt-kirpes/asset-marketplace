@@ -112,7 +112,7 @@ window.App = {
         nbOfProperties = parseInt(ret);
         return nbOfProperties;
       }).then( function(ret) {
-        for(i = 0; i < ret ; i++) {
+        for(i = 0; i < 10 ; i++) {
           properties.push({'id': i, 'price': 100});
         }
         //return properties;
