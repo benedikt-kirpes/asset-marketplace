@@ -67,23 +67,13 @@ window.App = {
     });
   },
 
-  setRegister: function() {
-      var self = this;
-
-      Marketplace.deployed().then(function(instance) {
-        var meta = instance;
-        console.log(meta.SetOwnersRegister('0xf85b80e2d5b6becb6bf266095efff9ba6bb98a69',{from: account}));
-      }).catch(function(e) {
-        console.log(e);
-      });
-    },
-
   putOnSale: function() {
-    var self = this;
 
     Marketplace.deployed().then(function(instance) {
       var meta = instance;
-      meta.PutOnSale(0,100,{from: account});
+      var price = parseInt(document.getElementById("saleprice").value);
+      var id = parseInt(document.getElementById("saleid").value);
+      meta.PutOnSale(id,price,{from: account});
     }).catch(function(e) {
       console.log(e);
     });
@@ -115,22 +105,21 @@ window.App = {
     var properties = [];
     var i;
 
-    Marketplace.deployed().then(function(instance) {
+    return Marketplace.deployed().then(function(instance) {
       var meta = instance;
-      return meta.getNbOfProperties({from: account})
+      return meta.getNbOfProperties({from: account});
     }).then(function(ret) {
         nbOfProperties = parseInt(ret);
-      }).then( function() {
-        for(i = 0; i < nbOfProperties ; i++) {
-          properties.append({'id': i, 'price': 100});
+        return nbOfProperties;
+      }).then( function(ret) {
+        for(i = 0; i < ret ; i++) {
+          properties.push({'id': i, 'price': 100});
         }
+        return properties;
       }
-      );
-
-    return properties;
+    );
   },
-
-
+  
   GetOwner: function() {
     var data = document.getElementById("receiver").value;
 
@@ -162,6 +151,29 @@ window.App = {
          var address = document.getElementById("addressm");
          address.innerHTML = a.valueOf();
       });
+  },
+
+  GetRegisterAddress: function() {
+
+    PropertyOwners.deployed().then(function(instance) {
+      var meta = instance;
+      return meta.getContractAddress({from: account});
+    }).then(function(a) {
+        App.SetRegisterAddress(a);
+     });
+  },
+
+  SetRegisterAddress: function() {
+
+    var address = "0x0491c41cc784447d9dac102fc1e4c2f2abf80245"
+
+    Marketplace.deployed().then(function(instance) {
+       var meta = instance;
+       //var address = String(document.getElementById("regaddress").value);
+       console.log(address);
+       console.log(account);
+       meta.SetOwnersRegister("0x0491c41cc784447d9dac102fc1e4c2f2abf80245",{from: account});
+     }).then( console.log('DONE'));
   }
 };
 
@@ -179,4 +191,5 @@ window.addEventListener('load', function() {
     //window.web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
   }
   App.start();
+  //App.GetRegisterAddress();
 });
