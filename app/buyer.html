@@ -20,8 +20,44 @@
     <!-- Custom CSS -->
     <link href="css/stylish-portfolio.css" rel="stylesheet">
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.min.js"></script>
     <script src="./app.js"></script>
     <script src="js/buyer.js"></script>
+
+
+
+    <script id="entry-template" type="text/x-handlebars-template">
+        <a href="#" class="list-group-item">
+            <div class="row">
+                <div class="media col-lg-4 col-md-4">
+                    <figure class="pull-left">
+                        <img class="media-object img-rounded img-responsive"  src="{{image}}" alt="" >
+                        <h4 class="list-group-item-heading">Price: {{price}}€</h4>
+                    </figure>
+
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <h4 class="list-group-item-heading">Type</h4>
+                    <p class="list-group-item-text">{{type}}</p>
+                    <h4 class="list-group-item-heading">City</h4>
+                    <p class="list-group-item-text">{{city}}</p>
+                    <h4 class="list-group-item-heading">Street</h4>
+                    <p class="list-group-item-text">{{street}}</p>
+                    <h4 class="list-group-item-heading">Year</h4>
+                    <p class="list-group-item-text">{{year}}</p>
+                </div>
+                <div class="col-lg-3 col-md-3">
+                    <h4 class="list-group-item-heading">Size</h4>
+                    <p class="list-group-item-text">{{size}} m²</p>
+                    <h4 class="list-group-item-heading">Rooms</h4>
+                    <p class="list-group-item-text">{{rooms}}</p>
+                    <h4 class="list-group-item-heading">Energy Class</h4>
+                    <p class="list-group-item-text">{{energyclass}}</p>
+                    <button type="button" class="btn btn-default btn-lg btn-block"> Place Bid! </button>
+                </div>
+            </div>
+        </a>
+    </script>
 
 </head>
 
@@ -52,8 +88,76 @@
     <!-- About -->
     <section id="about" class="about">
         <div class="container text-center">
-            <h2>Available Assets for Sale!</h2>
-            <p class="lead">....</p>
+
+            <div class="well">
+            <h2 class="text-center" style="margin-bottom:5%;">List of all assets for sale</h2>
+            <div class="list-group">
+                <div id="entries"></div>
+
+          <!--      <a href="#" class="list-group-item">
+                    <div class="row">
+                        <div class="media col-lg-4 col-md-4">
+                            <figure class="pull-left">
+                                <img class="media-object img-rounded img-responsive"  src="http://placehold.it/350x250" alt="placehold.it/350x250" >
+                                <h4 class="list-group-item-heading">Price: 12345€</h4>
+                            </figure>
+
+                        </div>
+                        <div class="col-lg-4 col-md-4">
+                            <h4 class="list-group-item-heading">Type</h4>
+                            <p class="list-group-item-text">Public Building</p>
+                            <h4 class="list-group-item-heading">City</h4>
+                            <p class="list-group-item-text">Copenhagen</p>
+                            <h4 class="list-group-item-heading">Street</h4>
+                            <p class="list-group-item-text">Universitetsparken 5</p>
+                            <h4 class="list-group-item-heading">Year</h4>
+                            <p class="list-group-item-text">1337</p>
+                        </div>
+                        <div class="col-lg-3 col-md-3">
+                            <h4 class="list-group-item-heading">Size</h4>
+                            <p class="list-group-item-text">2000 m²</p>
+                            <h4 class="list-group-item-heading">Rooms</h4>
+                            <p class="list-group-item-text">25</p>
+                            <h4 class="list-group-item-heading">Energy Class</h4>
+                            <p class="list-group-item-text">Class D</p>
+                            <button type="button" class="btn btn-default btn-lg btn-block"> Place Bid! </button>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" class="list-group-item">
+                    <div class="row">
+                        <div class="media col-lg-4 col-md-4">
+                            <figure class="pull-left">
+                                <img class="media-object img-rounded img-responsive"  src="http://placehold.it/350x250" alt="placehold.it/350x250" >
+                                <h4 class="list-group-item-heading">Price: 12345€</h4>
+                            </figure>
+
+                        </div>
+                        <div class="col-lg-4 col-md-4">
+                            <h4 class="list-group-item-heading">Type</h4>
+                            <p class="list-group-item-text">Public Building</p>
+                            <h4 class="list-group-item-heading">City</h4>
+                            <p class="list-group-item-text">Copenhagen</p>
+                            <h4 class="list-group-item-heading">Street</h4>
+                            <p class="list-group-item-text">Universitetsparken 5</p>
+                            <h4 class="list-group-item-heading">Year</h4>
+                            <p class="list-group-item-text">1337</p>
+                        </div>
+                        <div class="col-lg-3 col-md-3">
+                            <h4 class="list-group-item-heading">Size</h4>
+                            <p class="list-group-item-text">2000 m²</p>
+                            <h4 class="list-group-item-heading">Rooms</h4>
+                            <p class="list-group-item-text">25</p>
+                            <h4 class="list-group-item-heading">Energy Class</h4>
+                            <p class="list-group-item-text">Class D</p>
+                            <button type="button" class="btn btn-default btn-lg btn-block"> Place Bid! </button>
+                        </div>
+                    </div>
+                </a>-->
+            </div>
+        </div>
+            <!--<h2>Available Assets for Sale!</h2>-->
+            <!--<p class="lead">....</p>-->
         </div>
         <!-- /.container -->
     </section>
@@ -181,7 +285,7 @@
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for this template -->
-    <script src="js/stylish-portfolio.js"></script>
+    <!--<script src="js/stylish-portfolio.js"></script>-->
 
 </body>
 

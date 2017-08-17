@@ -14,5 +14,23 @@ window.addEventListener('load', function() {
     //window.web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
   }
   App.start();
-  
+
+  // compile template
+    var source   = $("#entry-template").html();
+    var template = Handlebars.compile(source);
+
+  var properties = App.GetAllProperties();
+  // put dummy data into props
+    properties.push(['test','haps']);
+    properties.push(['8888','hasdf']);
+    properties.push(['jfjfj','34erd']);
+  console.log(properties);
+
+  var entriesdiv = $("#entries");
+    for(i=0; i<properties.length;i++) {
+        var context = {image: "http://placehold.it/350x250", price: properties[i][0], type: properties[i][1], city: "copenhagen", street: "Universitetsgade 5", year: "2001", size: "200", rooms: "4", energyclass: "Class D"};
+        var html    = template(context);
+        entriesdiv.append(html);
+    }
+
 });
