@@ -19,6 +19,8 @@ module.exports = {
         { from: './app/vendor', to: "./vendor" },
         { from: './app/js', to: "./js" },
         { from: './app/index.html', to: "." },
+        { from: './app/buyer.html', to: "." },
+        { from: './app/seller.html', to: "." },
         { from: './app/log.html', to: "." }
     ])
   ],
