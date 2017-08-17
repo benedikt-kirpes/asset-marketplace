@@ -9,11 +9,15 @@ module.exports = {
   },
   plugins: [
     // Copy our app's index.html to the build folder.
+    // all new added files in the "app" folder have to be added here
     new CopyWebpackPlugin([
         { from: './app/css', to: './css' },
         { from: './app/stylesheets', to: './stylesheets' },
-        { from: './app/css/sidenav.css', to: './css' },
+        //{ from: './app/css/sidenav.css', to: './css' },
         { from: './app/fonts', to: './fonts' },
+        { from: './app/img', to: "./img" },
+        { from: './app/vendor', to: "./vendor" },
+        { from: './app/js', to: "./js" },
         { from: './app/index.html', to: "." },
         { from: './app/log.html', to: "." }
     ])
