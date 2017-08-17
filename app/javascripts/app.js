@@ -170,16 +170,14 @@ window.App = {
      });
   },
 
-  SetRegisterAddress: function() {
-
-    var address = "0x0491c41cc784447d9dac102fc1e4c2f2abf80245"
+  SetRegisterAddress: function(a) {
 
     Marketplace.deployed().then(function(instance) {
        var meta = instance;
        //var address = String(document.getElementById("regaddress").value);
-       console.log(address);
+       console.log(a);
        console.log(account);
-       meta.SetOwnersRegister("0x0491c41cc784447d9dac102fc1e4c2f2abf80245",{from: account});
+       meta.SetOwnersRegister(a,{from: account});
      }).then( console.log('DONE'));
   }
 };
@@ -198,5 +196,5 @@ window.addEventListener('load', function() {
     //window.web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
   }
   App.start();
-  //App.GetRegisterAddress();
+  App.GetRegisterAddress();
 });
