@@ -83,6 +83,20 @@ window.App = {
 
     var self = this;
 
+      // var street = document.getElementById("street").value;
+      // var city = document.getElementById("city").value;
+      // var type = document.getElementById("type").value;
+      // var year = parseInt(document.getElementById("year").value);
+      // var m2 = parseInt(document.getElementById("m2").value);
+      // var rooms = parseInt(document.getElementById("rooms").value);
+      // var youtube = document.getElementById("youtube").value;
+      // var image = document.getElementById("image").value;
+      // var energyclass = document.getElementById("energyclass").value;
+      // var price = parseInt(document.getElementById("price").value);
+
+      console.log("incomming data: " + street + " " + city + " " + type + " " + year + " " + m2 + " " + rooms + " " + youtube
+      + " " + image + " " + energyclass + " " + price);
+
     PropertyOwners.deployed().then(function(instance) {
       var meta = instance;
       meta.AddProperty({from: account});
