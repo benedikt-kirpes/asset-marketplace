@@ -99,7 +99,7 @@ window.App = {
     }).then(function(a) {return parseInt(a); })
   },
 
-  GetAllProperties: function() {
+  GetAllProperties: function(fi) {
 
     var nbOfProperties;
     var properties = [];
@@ -115,10 +115,17 @@ window.App = {
         for(i = 0; i < ret ; i++) {
           properties.push({'id': i, 'price': 100});
         }
-        return properties;
+        //return properties;
+        fi(properties);
       }
     );
   },
+
+  getProp: function(x) {
+    var address = document.getElementById("addresspo");
+    address.innerHTML = x;
+  },
+
 
   GetOwner: function() {
     var data = document.getElementById("receiver").value;
