@@ -1,8 +1,8 @@
 pragma solidity ^0.4.2;
 
 contract PropertyOwnersInterface {
-    function GetOwner(uint propId) public constant returns (address) {}
-    function ChangeOwner(uint propId, address newOwner) {}
+    function getOwner(uint propId) public constant returns (address) {}
+    function changeOwner(uint propId, address newOwner) {}
 }
 
 contract Marketplace {
@@ -41,13 +41,13 @@ contract Marketplace {
       return bytes32(propertiesForSale[pid].price);
     }
 
-    function SetOwnersRegister(address a) {
+    function setOwnersRegister(address a) {
         registerAddress = a;
     }
 
-    function PutOnSale(uint pid, uint price) {
+    function putOnSale(uint pid, uint price) {
         PropertyOwnersInterface p = PropertyOwnersInterface(registerAddress);
-        address pad = p.GetOwner(pid);
+        address pad = p.getOwner(pid);
         if (msg.sender != pad) {
           throw;
         }
@@ -55,25 +55,25 @@ contract Marketplace {
         nbOfProperties = nbOfProperties + 1;
     }
 
-    function Buying(uint pid) payable {
+    function buying(uint pid) payable {
       uint price = propertiesForSale[pid].price;
-      if(msg.value >= price) {
+      if (msg.value >= price) {
         propertiesForSale[pid].sold = true;
         propertiesForSale[pid].buyer = msg.sender;
       }
     }
 
-    function SettleTransaction(uint pid) {
+    function settleTransaction(uint pid) {
         address buyer = propertiesForSale[pid].buyer;
         uint legalid = propertiesForSale[pid].legalid;
         uint price = propertiesForSale[pid].price;
         PropertyOwnersInterface p = PropertyOwnersInterface(registerAddress);
-        address pad = p.GetOwner(legalid);
+        address pad = p.getOwner(legalid);
         if (msg.sender != pad || propertiesForSale[pid].sold == false) {
           throw;
         }
         msg.sender.transfer(price);
-        p.ChangeOwner(legalid, buyer);
+        p.changeOwner(legalid, buyer);
     }
 
 }

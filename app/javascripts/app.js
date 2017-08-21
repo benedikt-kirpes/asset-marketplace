@@ -83,7 +83,7 @@ window.App = {
 
     var self = this;
 
-      // var street = document.getElementById("street").value;
+      var street = document.getElementById("street").value;
       // var city = document.getElementById("city").value;
       // var type = document.getElementById("type").value;
       // var year = parseInt(document.getElementById("year").value);
@@ -94,7 +94,7 @@ window.App = {
       // var energyclass = document.getElementById("energyclass").value;
       // var price = parseInt(document.getElementById("price").value);
 
-      console.log("incomming data: " + street + " " + city + " " + type + " " + year + " " + m2 + " " + rooms + " " + youtube
+      console.log("incoming data: " + street + " " + city + " " + type + " " + year + " " + m2 + " " + rooms + " " + youtube
       + " " + image + " " + energyclass + " " + price);
 
     PropertyOwners.deployed().then(function(instance) {
